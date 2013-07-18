@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>image gallery</title>
+</head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/Javascript">
+	var deger=0;
+	var ints;
+	
+	
+	
+	$(document).ready(function() {
+		rotate();
+		
+		//read the clicked img properties
+		$('.img').click(function(){
+		var altimg = $(this).attr('alt');
+		deger= $(this).attr('name');
+		window.clearInterval(ints);
+		ints=self.setInterval(function(){rotate()},4000);
+		$('#variableImg').attr('src','images/'+altimg);
+		});
+	 
+	//when page load call rotate function every four second 	 
+	ints=self.setInterval(function(){rotate()},4000);
+	
+	//change variableImg src
+	function rotate()
+	{
+		deger++;
+		if(deger>5)
+		{
+			deger=1;
+		}
+		if(deger==1)
+		{
+			$('#variableImg').attr('src','images/'+deger+'.jpg');
+		}
+		if(deger==2)
+		{
+			$('#variableImg').attr('src','images/'+deger+'.jpg');
+		}
+		if(deger==3)
+		{
+			$('#variableImg').attr('src','images/'+deger+'.jpg');
+		}
+		if(deger==4)
+		{
+			$('#variableImg').attr('src','images/'+deger+'.jpg');
+		}
+		if(deger==5)
+		{
+			$('#variableImg').attr('src','images/'+deger+'.jpg');
+			deger=0;
+		}
+		
+		
+	}
+	});
+</script>
+ <style type="text/css">
+	.liClass
+	{
+		padding-right: 5px;
+		float: left
+	}
+
+	#showImage{
+		width: 600px;
+		height: 400px;
+		float: left;
+		margin-left: 40px;
+	}
+  </style>
+<body>
+  <div id="container">
+    
+	<div id="showImage"><img id="variableImg" src="images/1.jpg"</div>
+    <div id="gallery" class="ad-gallery">
+
+	  <ul class="ad-thumb-list">
+		<li class="liClass" >
+			<img src="images/thumbs/t1.jpg" style="cursor:pointer" name="1" title="1.jpg" alt="1.jpg" class="img">
+		</li>
+		<li class="liClass">
+			<img src="images/thumbs/t2.jpg" style="cursor:pointer" name="2" title="2.jpg" alt="2.jpg" class="img">
+		</li>
+		<li class="liClass">
+			<img src="images/thumbs/t3.jpg" style="cursor:pointer" name="3" title="3.jpg"  alt="3.jpg" class="img">
+		</li>
+		<li class="liClass">
+			<img src="images/thumbs/t4.jpg" style="cursor:pointer" name="4" title="4.jpg" alt="4.jpg" class="img">
+		</li>
+		<li class="liClass">
+			<img src="images/thumbs/t5.jpg" style="cursor:pointer" name="5" title="5.jpg" alt="5.jpg" class="img">
+		</li>          
+	  </ul>
+	</div>
+	
+  </div>
+</body>
+</html>
